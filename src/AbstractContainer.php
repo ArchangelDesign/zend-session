@@ -192,7 +192,7 @@ abstract class AbstractContainer extends ArrayObject
     {
         $storage = $this->getStorage();
         $name    = $this->getName();
-        if (!isset($storage[$name])) {
+        if (!is_array($storage[$name]) && !$storage[$name] instanceof Traversable) {
             if (!$createContainer) {
                 return;
             }
